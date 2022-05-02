@@ -1,0 +1,127 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\WLJY8\Desktop\Courses\YEAR 4\WINTER\ECO475\HW1\log file.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}22 Feb 2021, 23:47:24
+
+{com}. do "C:\Users\WLJY8\AppData\Local\Temp\STD4e0c_000000.tmp"
+{txt}
+{com}. clear all
+{res}{txt}
+{com}. 
+. use "C:\Users\WLJY8\Desktop\Courses\YEAR 4\WINTER\ECO475\HW1\hw1data.dta"
+{txt}
+{com}. 
+. *Q3
+. 
+. * Fit probit model 
+. probit y x1 x2 x3 x4 x5 x6
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-82.760511}  
+Iteration 1:{space 3}log likelihood = {res:-30.299996}  
+Iteration 2:{space 3}log likelihood = {res:-28.400517}  
+Iteration 3:{space 3}log likelihood = {res:-28.336254}  
+Iteration 4:{space 3}log likelihood = {res:-28.336104}  
+Iteration 5:{space 3}log likelihood = {res:-28.336104}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}       120
+{txt}{col 49}LR chi2({res}6{txt}){col 67}= {res}    108.85
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-28.336104{txt}{col 49}Pseudo R2{col 67}= {res}    0.6576
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           y{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}x1 {c |}{col 14}{res}{space 2} 2.011708{col 26}{space 2} .5337449{col 37}{space 1}    3.77{col 46}{space 3}0.000{col 54}{space 4} .9655868{col 67}{space 3} 3.057828
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2}-3.323863{col 26}{space 2} .7132776{col 37}{space 1}   -4.66{col 46}{space 3}0.000{col 54}{space 4}-4.721861{col 67}{space 3}-1.925864
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} 2.656909{col 26}{space 2} .5679074{col 37}{space 1}    4.68{col 46}{space 3}0.000{col 54}{space 4} 1.543831{col 67}{space 3} 3.769987
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} .9049947{col 26}{space 2} .2688554{col 37}{space 1}    3.37{col 46}{space 3}0.001{col 54}{space 4} .3780479{col 67}{space 3} 1.431941
+{txt}{space 10}x5 {c |}{col 14}{res}{space 2}-2.380636{col 26}{space 2}  .550527{col 37}{space 1}   -4.32{col 46}{space 3}0.000{col 54}{space 4}-3.459649{col 67}{space 3}-1.301623
+{txt}{space 10}x6 {c |}{col 14}{res}{space 2} .3098398{col 26}{space 2} .1558339{col 37}{space 1}    1.99{col 46}{space 3}0.047{col 54}{space 4}  .004411{col 67}{space 3} .6152687
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.9246096{col 26}{space 2} .4787586{col 37}{space 1}   -1.93{col 46}{space 3}0.053{col 54}{space 4}-1.862959{col 67}{space 3} .0137399
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: 8 failures and 3 successes completely determined.{p_end}
+
+{com}. 
+. * Average marginal effects
+. margin, dydx(x2 x5)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}       120
+{txt}{col 1}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(y), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:x2 x5}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}x2 {c |}{col 14}{res}{space 2}-.4302913{col 26}{space 2} .0455122{col 37}{space 1}   -9.45{col 46}{space 3}0.000{col 54}{space 4}-.5194935{col 67}{space 3} -.341089
+{txt}{space 10}x5 {c |}{col 14}{res}{space 2}-.3081857{col 26}{space 2} .0412259{col 37}{space 1}   -7.48{col 46}{space 3}0.000{col 54}{space 4}-.3889869{col 67}{space 3}-.2273845
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. * Fit logit model 
+. logit y x1 x2 x3 x4 x5 x6
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-82.760511}  
+Iteration 1:{space 3}log likelihood = {res: -30.57662}  
+Iteration 2:{space 3}log likelihood = {res:-28.750296}  
+Iteration 3:{space 3}log likelihood = {res:-28.672363}  
+Iteration 4:{space 3}log likelihood = {res:-28.672342}  
+Iteration 5:{space 3}log likelihood = {res:-28.672342}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}       120
+{txt}{col 49}LR chi2({res}6{txt}){col 67}= {res}    108.18
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-28.672342{txt}{col 49}Pseudo R2{col 67}= {res}    0.6536
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           y{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}x1 {c |}{col 14}{res}{space 2} 3.415127{col 26}{space 2} .9586819{col 37}{space 1}    3.56{col 46}{space 3}0.000{col 54}{space 4} 1.536145{col 67}{space 3} 5.294109
+{txt}{space 10}x2 {c |}{col 14}{res}{space 2}-5.768404{col 26}{space 2} 1.321964{col 37}{space 1}   -4.36{col 46}{space 3}0.000{col 54}{space 4}-8.359406{col 67}{space 3}-3.177402
+{txt}{space 10}x3 {c |}{col 14}{res}{space 2} 4.609453{col 26}{space 2} 1.064614{col 37}{space 1}    4.33{col 46}{space 3}0.000{col 54}{space 4} 2.522848{col 67}{space 3} 6.696058
+{txt}{space 10}x4 {c |}{col 14}{res}{space 2} 1.544106{col 26}{space 2} .4804108{col 37}{space 1}    3.21{col 46}{space 3}0.001{col 54}{space 4}  .602518{col 67}{space 3} 2.485694
+{txt}{space 10}x5 {c |}{col 14}{res}{space 2}-4.106603{col 26}{space 2} .9933383{col 37}{space 1}   -4.13{col 46}{space 3}0.000{col 54}{space 4}-6.053511{col 67}{space 3}-2.159696
+{txt}{space 10}x6 {c |}{col 14}{res}{space 2} .5345794{col 26}{space 2} .2733479{col 37}{space 1}    1.96{col 46}{space 3}0.051{col 54}{space 4}-.0011727{col 67}{space 3} 1.070331
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-1.565264{col 26}{space 2} .8618573{col 37}{space 1}   -1.82{col 46}{space 3}0.069{col 54}{space 4}-3.254473{col 67}{space 3} .1239449
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. * Average marginal effects
+. margin, dydx(x2 x5)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}       120
+{txt}{col 1}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(y), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:x2 x5}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}x2 {c |}{col 14}{res}{space 2}-.4303442{col 26}{space 2} .0469477{col 37}{space 1}   -9.17{col 46}{space 3}0.000{col 54}{space 4}  -.52236{col 67}{space 3}-.3383285
+{txt}{space 10}x5 {c |}{col 14}{res}{space 2}-.3063677{col 26}{space 2} .0407848{col 37}{space 1}   -7.51{col 46}{space 3}0.000{col 54}{space 4}-.3863045{col 67}{space 3} -.226431
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\WLJY8\Desktop\Courses\YEAR 4\WINTER\ECO475\HW1\log file.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}22 Feb 2021, 23:47:35
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
